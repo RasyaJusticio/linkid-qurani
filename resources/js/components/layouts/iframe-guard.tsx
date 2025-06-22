@@ -1,0 +1,23 @@
+import React from 'react';
+
+type IFrameGuardProps = {
+    children: React.ReactNode;
+};
+
+const APP_ENV = import.meta.env.VITE_APP_ENV ?? 'DEV';
+
+const isInsideIFrame = window.self !== window.top || APP_ENV === 'DEV';
+
+if (!isInsideIFrame) {
+    window.location.replace(route('redirect'));
+}
+
+const IFrameGuard: React.FC<IFrameGuardProps> = ({ children }) => {
+    if (!isInsideIFrame) {
+        return <></>;
+    }
+
+    return <>{children}</>;
+};
+
+export default IFrameGuard;
