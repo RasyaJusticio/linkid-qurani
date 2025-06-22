@@ -1,8 +1,9 @@
+import { IS_IN_IFRAME } from '@/constants/global';
 import { EventsHandlerProvider } from '@/context/EventsHandler';
+import { postMessage } from '@/utils/postMessage';
+import { router } from '@inertiajs/react';
 import React, { useEffect } from 'react';
 import IFrameGuard from './iframe-guard';
-import { router } from '@inertiajs/react';
-import { postMessage } from '@/utils/postMessage';
 
 type AppWrapperProps = {
     children?: React.ReactNode;
@@ -11,20 +12,25 @@ type AppWrapperProps = {
 const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
     useEffect(() => {
         const removeOnPageSuccess = router.on('success', (event) => {
-            console.log(event.detail.page.url);
-            postMessage('POST', 'route_change', { path: event.detail.page.url });
+            if (IS_IN_IFRAME) {
+                postMessage('POST', 'route_change', { path: event.detail.page.url });
+            }
         });
 
         return () => {
             removeOnPageSuccess();
-        }
+        };
     }, []);
 
-    return (
-        <IFrameGuard>
-            <EventsHandlerProvider>{children}</EventsHandlerProvider>
-        </IFrameGuard>
-    );
+    if (IS_IN_IFRAME) {
+        return (
+            <IFrameGuard>
+                <EventsHandlerProvider>{children}</EventsHandlerProvider>
+            </IFrameGuard>
+        );
+    } else {
+        return <EventsHandlerProvider>{children}</EventsHandlerProvider>;
+    }
 };
 
 export default AppWrapper;

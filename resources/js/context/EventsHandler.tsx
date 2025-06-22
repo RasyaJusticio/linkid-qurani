@@ -1,3 +1,4 @@
+import { IS_IN_IFRAME } from '@/constants/global';
 import { useAppearance } from '@/hooks/use-appearance';
 import { BaseEvent, InitialDataEvent } from '@/types/events';
 import { changeLanguage } from '@/utils/changeLanguage';
@@ -31,9 +32,11 @@ export const EventsHandlerProvider: FC<Props> = ({ children }) => {
             }
         };
 
-        window.addEventListener('message', handleMessage);
+        if (IS_IN_IFRAME) {
+            window.addEventListener('message', handleMessage);
 
-        postMessage('GET', 'initial_data');
+            postMessage('GET', 'initial_data');
+        }
 
         return () => {
             window.removeEventListener('message', handleMessage);

@@ -1,3 +1,4 @@
+import { IS_IN_IFRAME } from '@/constants/global';
 import React from 'react';
 
 type IFrameGuardProps = {
@@ -6,7 +7,7 @@ type IFrameGuardProps = {
 
 const APP_ENV = import.meta.env.VITE_APP_ENV ?? 'DEV';
 
-const isInsideIFrame = window.self !== window.top || APP_ENV === 'DEV';
+const isInsideIFrame = IS_IN_IFRAME || APP_ENV === 'DEV';
 
 if (!isInsideIFrame) {
     window.location.replace(route('redirect'));
