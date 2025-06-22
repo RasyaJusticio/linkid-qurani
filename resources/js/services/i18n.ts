@@ -11,7 +11,9 @@ i18n
     .init({
         debug: true,
         lng: storedLocale,
+        supportedLngs: ['en_US', 'id_ID', 'ra_RA'],
         fallbackLng: 'id_ID',
+        load: 'currentOnly',
         ns: ['shared'],
         defaultNS: ['shared'],
         interpolation: {

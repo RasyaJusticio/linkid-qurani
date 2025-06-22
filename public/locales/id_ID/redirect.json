@@ -1,0 +1,5 @@
+{
+    "fromMain": "Halaman ini hanya bisa diakses dari halaman utama <redirect>Link.id</redirect>",
+    "countdown": "Anda akan diahlihkan ke halaman utama <redirect>Link.id</redirect> dalam <countdown>{{count}}</countdown> detik",
+    "notRedirected": "Bila tidak dialihkan secara otomatis, tekan <redirect>di sini</redirect>."
+}

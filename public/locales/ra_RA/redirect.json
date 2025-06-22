@@ -1,0 +1,5 @@
+{
+    "fromMain": "This page can only be accessed from the main page <link></link>",
+    "countdown": "You will be redirected to the main page <link></link> in <countdown>{{count}}</countdown> seconds",
+    "notRedirected": "If not redirected automatically, click <link>here</link>."
+}
