@@ -1,6 +1,6 @@
 export type BaseEvent = {
     method: "GET" | "POST" | "RESP";
-    type: "initial_data";
+    type: "initial_data" | 'route_change';
     data: unknown;
 }
 
