@@ -1,12 +1,17 @@
-import React from "react";
-import IFrameGuard from "./iframe-guard";
+import { EventsHandlerProvider } from '@/context/EventsHandler';
+import React from 'react';
+import IFrameGuard from './iframe-guard';
 
 type AppWrapperProps = {
-    children?: React.ReactNode
+    children?: React.ReactNode;
 };
 
 const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
-    return <IFrameGuard>{children}</IFrameGuard>;
-}
+    return (
+        <IFrameGuard>
+            <EventsHandlerProvider>{children}</EventsHandlerProvider>
+        </IFrameGuard>
+    );
+};
 
 export default AppWrapper;
