@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Qurani;
 
 use App\Http\Controllers\Controller;
+use App\Models\LinkID\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
 class AppLoadController extends Controller
@@ -33,9 +35,13 @@ class AppLoadController extends Controller
         if ($payload['expires_at'] < time()) {
             abort(401, 'Token expired');
         }
+        $user = User::where(['user_id' => $payload['user_id']])->first();
+        if (!$user || empty($user)) {
+            abort(401, 'User not found');
+        }
 
         Cache::put($payload['nonce'], true, $payload['expires_at'] - time());
-        session(['linkid_user' => $payload['user_id']]);
+        Auth::login($user);
 
         return redirect()->route('home');
     }
