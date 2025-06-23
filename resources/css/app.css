@@ -11,13 +11,13 @@
     --font-sans:
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-    --font-inter:
-        'Inter', 'Poppins', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-inter: 'Inter', 'Poppins', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
 
+    --color-body-background: var(--body-background);
     --color-background: var(--background);
     --color-foreground: var(--foreground);
 
@@ -81,6 +81,7 @@
 }
 
 :root {
+    --body-background: oklch(96.05% 0.005 258.32);
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -117,6 +118,7 @@
 }
 
 .dark {
+    --body-background: oklch(26.02% 0.015 244.26);
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.145 0 0);
@@ -151,12 +153,16 @@
     --sidebar-ring: oklch(0.439 0 0);
 }
 
+.app-container {
+    @apply min-[576px]:max-w-[540px] min-[768px]:max-w-[720px] min-[992px]:max-w-[960px] min-[1200px]:max-w-[1140px] min-[1400px]:max-w-[1320px] mx-auto;
+}
+
 @layer base {
     * {
         @apply border-border;
     }
 
     body {
-        @apply bg-background text-foreground;
+        @apply bg-body-background text-foreground;
     }
 }
