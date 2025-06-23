@@ -4,7 +4,7 @@ import { Head, Link } from '@inertiajs/react';
 import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-const PARENT_URL = import.meta.env.VITE_APP_PARENT_URL ?? 'https://link.id';
+const PARENT_URL = import.meta.env.VITE_PARENT_URL ?? 'https://link.id';
 
 type RedirectPageProps = {
     linkIdLogo: string;

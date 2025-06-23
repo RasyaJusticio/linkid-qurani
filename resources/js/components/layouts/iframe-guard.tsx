@@ -5,7 +5,7 @@ type IFrameGuardProps = {
     children: React.ReactNode;
 };
 
-const APP_ENV = import.meta.env.VITE_APP_ENV ?? 'DEV';
+const APP_ENV = import.meta.env.VITE_ENV ?? 'DEV';
 
 const isInsideIFrame = IS_IN_IFRAME || APP_ENV === 'DEV';
 

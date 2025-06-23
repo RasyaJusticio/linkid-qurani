@@ -1,6 +1,6 @@
 import { BaseEvent } from "@/types/events";
 
-const PARENT_URL = import.meta.env.VITE_APP_PARENT_URL || '*';
+const PARENT_URL = import.meta.env.VITE_PARENT_URL || '*';
 
 export function postMessage(method: BaseEvent['method'], type: BaseEvent['type'], data?: unknown) {
     window.parent.postMessage(
