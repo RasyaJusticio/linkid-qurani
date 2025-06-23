@@ -26,10 +26,20 @@ class MainPageController extends Controller
             }
         );
 
+        $friends = $user->friends()->get()->map(function ($friend) {
+            return [
+                'user_id' => $friend->user_id,
+                'user_name' => $friend->user_name,
+                'user_firstname' => $friend->user_firstname,
+                'user_lastname' => $friend->user_lastname,
+            ];
+        });
+
         return Inertia::render(
             'main-page',
             [
-            'groups' => $groups
+            'groups' => $groups,
+            'friends' => $friends
             ]
         );
     }
