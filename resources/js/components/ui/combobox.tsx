@@ -127,7 +127,7 @@ export function ComboBox({
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          variant="outline"
+          variant="combobox"
           role="combobox"
           aria-expanded={open}
           className={cn(widthClass, "justify-between group", className)}
@@ -135,7 +135,7 @@ export function ComboBox({
           {selected
             ? items.find((item) => item.value === selected)?.label
             : placeholder}
-          <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50 shrink-0 group-hover:text-success-medium group-hover:opacity-100" />
+          <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50 shrink-0 group-hover:text-accent group-hover:opacity-100" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className={cn("p-0", widthClass)}>
@@ -172,7 +172,7 @@ export function ComboBox({
                       className={cn(
                         "absolute left-0 top-0 w-full bg-transparent",
                         focusedIndex === virtualRow.index &&
-                          "bg-success-faint text-accent-foreground",
+                          "bg-accent text-accent-foreground",
                         isKeyboardNavActive &&
                           focusedIndex !== virtualRow.index &&
                           "aria-selected:bg-transparent aria-selected:text-primary"
@@ -191,7 +191,7 @@ export function ComboBox({
                       {item.label}
                       <Check
                         className={cn(
-                          "ml-auto h-4 w-4",
+                          "text-accent-foreground ml-auto h-4 w-4",
                           selected === item.value
                             ? "opacity-100"
                             : "opacity-0"

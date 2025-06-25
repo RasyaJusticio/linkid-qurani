@@ -32,13 +32,13 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
     return (
         <Form {...form}>
             <form className="space-y-6">
-                <h2 className="text-2xl font-semibold">Qurani</h2>
+                <h2 className="text-2xl font-semibold">{t('recite-form.title')}</h2>
 
                 <FormField
                     control={form.control}
                     name="selection"
                     render={({ field }) => (
-                        <FormItem className="gap-2 sm:grid-cols-5">
+                        <FormItem className="gap-4 sm:grid-cols-5">
                             <FormLabel>{t('recite-form.labels.selection')}</FormLabel>
                             <FormControl>
                                 <RadioGroup
@@ -75,10 +75,10 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                             control={form.control}
                             name="groupId"
                             render={({ field }) => (
-                                <FormItem className="gap-2 sm:grid-cols-5">
+                                <FormItem className="gap-4 sm:grid-cols-5">
                                     <FormLabel>{t('recite-form.labels.groupId')}</FormLabel>
-                                    <FormControl>
-                                        <ComboBox items={groups.map((group) => ({ value: String(group.group_id), label: group.group_title }))} {...field} />
+                                    <FormControl className="col-span-4">
+                                        <ComboBox items={groups.map((group) => ({ value: String(group.group_id), label: group.group_title }))} className="w-full" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -88,10 +88,10 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                             control={form.control}
                             name="userId"
                             render={({ field }) => (
-                                <FormItem className="gap-2 sm:grid-cols-5">
+                                <FormItem className="gap-4 sm:grid-cols-5">
                                     <FormLabel>{t('recite-form.labels.userId')}</FormLabel>
-                                    <FormControl>
-                                        <ComboBox items={groups.map((group) => ({ value: String(group.group_id), label: group.group_title }))} {...field} />
+                                    <FormControl className="col-span-4">
+                                        <ComboBox items={groups.map((group) => ({ value: String(group.group_id), label: group.group_title }))} className="w-full" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -103,10 +103,10 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                         control={form.control}
                         name="userId"
                         render={({ field }) => (
-                            <FormItem className="gap-2 sm:grid-cols-5">
+                            <FormItem className="gap-4 sm:grid-cols-5">
                                 <FormLabel>{t('recite-form.labels.friendId')}</FormLabel>
-                                <FormControl>
-                                    <ComboBox items={friends.map((friend) => ({ value: String(friend.user_id), label: `${friend.user_firstname} ${friend.user_lastname}` }))} {...field} />
+                                <FormControl className="col-span-4">
+                                    <ComboBox items={friends.map((friend) => ({ value: String(friend.user_id), label: `${friend.user_firstname} ${friend.user_lastname}` }))} className="w-full" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -118,7 +118,7 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                     control={form.control}
                     name="type"
                     render={({ field }) => (
-                        <FormItem className="gap-2 sm:grid-cols-5">
+                        <FormItem className="gap-4 sm:grid-cols-5">
                             <FormLabel>{t('recite-form.labels.type')}</FormLabel>
                             <FormControl>
                                 <RadioGroup
@@ -153,7 +153,7 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                     control={form.control}
                     name="unit"
                     render={({ field }) => (
-                        <FormItem className="gap-2 sm:grid-cols-5">
+                        <FormItem className="gap-4 sm:grid-cols-5">
                             <FormLabel>{t('recite-form.labels.unit')}</FormLabel>
                             <FormControl>
                                 <RadioGroup
@@ -198,10 +198,10 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                             control={form.control}
                             name="chapterId"
                             render={({ field }) => (
-                                <FormItem className="gap-2 sm:grid-cols-5">
+                                <FormItem className="gap-4 sm:grid-cols-5">
                                     <FormLabel>{t('recite-form.labels.chapterId')}</FormLabel>
-                                    <FormControl>
-                                        <ComboBox items={chapters.map((chapter) => ({ value: String(chapter.id), label: `${chapter.name_simple} (${chapter.id})` }))} {...field} />
+                                    <FormControl className="col-span-4">
+                                        <ComboBox items={chapters.map((chapter) => ({ value: String(chapter.id), label: `${chapter.name_simple} (${chapter.id})` }))} className="w-full" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -209,11 +209,11 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                         />
                         <div className="grid grid-cols-5">
                             <div></div>
-                            <div className="grid col-span-5 grid-cols-2 sm:col-span-4 gap-2 sm:grid-cols-4">
-                                <Button type="button" onClick={() => form.setValue("chapterId", "1")}>{t('recite-form.quick-select.alfatihah')}</Button>
-                                <Button type="button" onClick={() => form.setValue("chapterId", "36")}>{t('recite-form.quick-select.yasin')}</Button>
-                                <Button type="button" onClick={() => form.setValue("chapterId", "112")}>{t('recite-form.quick-select.alikhlas')}</Button>
-                                <Button type="button" onClick={() => form.setValue("chapterId", "114")}>{t('recite-form.quick-select.annas')}</Button>
+                            <div className="grid col-span-5 grid-cols-2 sm:col-span-4 gap-1 sm:gap-2 sm:grid-cols-4">
+                                <Button type="button" variant="outline" onClick={() => form.setValue("chapterId", "1")}>{t('recite-form.quick-select.alfatihah')}</Button>
+                                <Button type="button" variant="outline" onClick={() => form.setValue("chapterId", "36")}>{t('recite-form.quick-select.yasin')}</Button>
+                                <Button type="button" variant="outline" onClick={() => form.setValue("chapterId", "112")}>{t('recite-form.quick-select.alikhlas')}</Button>
+                                <Button type="button" variant="outline" onClick={() => form.setValue("chapterId", "114")}>{t('recite-form.quick-select.annas')}</Button>
                             </div>
                         </div>
                     </>
@@ -224,10 +224,10 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                         control={form.control}
                         name="juzId"
                         render={({ field }) => (
-                            <FormItem className="gap-2 sm:grid-cols-5">
+                            <FormItem className="gap-4 sm:grid-cols-5">
                                 <FormLabel>{t('recite-form.labels.juzId')}</FormLabel>
-                                <FormControl>
-                                    <ComboBox items={juzs.map((juz) => ({ value: String(juz.id), label: String(juz.id) }))} {...field} />
+                                <FormControl className="col-span-4">
+                                    <ComboBox items={juzs.map((juz) => ({ value: String(juz.id), label: String(juz.id) }))} className="w-full" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -240,18 +240,16 @@ const ReciteForm: React.FC<ReciteFormProps> = ({ groups, friends, chapters, juzs
                         control={form.control}
                         name="pageId"
                         render={({ field }) => (
-                            <FormItem className="gap-2 sm:grid-cols-5">
+                            <FormItem className="gap-4 sm:grid-cols-5">
                                 <FormLabel>{t('recite-form.labels.pageId')}</FormLabel>
-                                <FormControl>
-                                    <ComboBox items={QURAN_PAGES.map((page) => ({ value: String(page), label: String(page) }))} {...field} />
+                                <FormControl className="col-span-4">
+                                    <ComboBox items={QURAN_PAGES.map((page) => ({ value: String(page), label: String(page) }))} className="w-full" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
                 )}
-
-
             </form>
         </Form>
     );
