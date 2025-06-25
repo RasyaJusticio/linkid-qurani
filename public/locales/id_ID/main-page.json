@@ -1,0 +1,37 @@
+{
+    "recite-form": {
+        "title": "Qurani",
+        "labels": {
+            "selection": "Penyetor",
+            "groupId": "Grup",
+            "friendId": "Teman",
+            "userId": "Anggota",
+            "type": "Tipe",
+            "unit": "Unit",
+            "chapterId": "Surah",
+            "juzId": "Juz",
+            "pageId": "Halaman"
+        },
+        "values": {
+            "selection": {
+                "group": "Grup",
+                "friend": "Teman"
+            },
+            "type": {
+                "tahsin": "Tahsin",
+                "tahfidz": "Tahfidz"
+            },
+            "unit": {
+                "chapter": "Surah",
+                "juz": "Juz",
+                "page": "Halaman"
+            }
+        },
+        "quick-select": {
+            "alfatihah": "Al-Fatihah",
+            "yasin": "Yasin",
+            "alikhlas": "Al-Ikhlas",
+            "annas": "An-Nas"
+        }
+    }
+}

@@ -1,1 +1,7 @@
-{}
+{
+    "combobox": {
+        "placeholder": "Pilih...",
+        "searchPlaceholder": "Cari...",
+        "emptyText": "Item tidak ditemukan."
+    }
+}
