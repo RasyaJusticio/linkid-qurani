@@ -19,6 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { useTranslation } from "react-i18next"
 
 export type ComboBoxItem = {
   value: string
@@ -39,9 +40,9 @@ interface ComboBoxProps {
 
 export function ComboBox({
   items,
-  placeholder = "Select...",
-  searchPlaceholder = "Search...",
-  emptyText = "No item found.",
+  placeholder,
+  searchPlaceholder,
+  emptyText,
   className,
   value,
   onChange,
@@ -54,6 +55,8 @@ export function ComboBox({
   const [focusedIndex, setFocusedIndex] = React.useState(-1)
   const [isKeyboardNavActive, setIsKeyboardNavActive] = React.useState(false)
   const [container, setContainer] = React.useState<HTMLDivElement | null>(null);
+
+  const { t } = useTranslation();
 
   const refCallback = React.useCallback((node: HTMLDivElement | null) => {
     setContainer(node);
@@ -134,14 +137,14 @@ export function ComboBox({
         >
           {selected
             ? items.find((item) => item.value === selected)?.label
-            : placeholder}
+            : (placeholder ?? t('combobox.placeholder'))}
           <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50 shrink-0 group-hover:text-accent group-hover:opacity-100" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className={cn("p-0", widthClass)}>
         <Command shouldFilter={false} onKeyDown={handleKeyDown}>
           <CommandInput
-            placeholder={searchPlaceholder}
+            placeholder={searchPlaceholder ?? t('combobox.searchPlaceholder')}
             className="h-9"
             onValueChange={handleSearch}
           />
@@ -152,7 +155,7 @@ export function ComboBox({
             onMouseDown={() => setIsKeyboardNavActive(false)}
             onMouseMove={() => setIsKeyboardNavActive(false)}
           >
-            <CommandEmpty>{emptyText}</CommandEmpty>
+            <CommandEmpty>{emptyText ?? t('combobox.emptyText')}</CommandEmpty>
             <CommandGroup>
               <div
                 style={{

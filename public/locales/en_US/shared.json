@@ -1,1 +1,7 @@
-{}
+{
+    "combobox": {
+        "placeholder": "Select...",
+        "searchPlaceholder": "Search...",
+        "emptyText": "No items found."
+    }
+}
