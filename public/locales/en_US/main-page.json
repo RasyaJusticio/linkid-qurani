@@ -1,0 +1,36 @@
+{
+    "recite-form": {
+        "labels": {
+            "selection": "Reciter",
+            "groupId": "Group",
+            "friendId": "Friend",
+            "userId": "Member",
+            "type": "Type",
+            "unit": "Unit",
+            "chapterId": "Chapter",
+            "juzId": "Juz",
+            "pageId": "Page"
+        },
+        "values": {
+            "selection": {
+                "group": "Group",
+                "friend": "Friend"
+            },
+            "type": {
+                "tahsin": "Tahsin",
+                "tahfidz": "Tahfidz"
+            },
+            "unit": {
+                "chapter": "Chapter",
+                "juz": "Juz",
+                "page": "Page"
+            }
+        },
+        "quick-select": {
+            "alfatihah": "Al-Fatihah",
+            "yasin": "Yasin",
+            "alikhlas": "Al-Ikhlas",
+            "annas": "An-Nas"
+        }
+    }
+}

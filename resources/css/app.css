@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
@@ -11,11 +12,17 @@
     --font-sans:
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-    --font-inter: 'Inter', 'Poppins', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-figtree:
+        "Figtree", "Helvetica Neue", "Helvetica", Arial;
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
+
+    --color-success-faded: var(--success-faded);
+    --color-success-faint: var(--success-faint);
+    --color-success-medium: var(--success-medium);
+    --color-success-deep: var(--success-deep);
 
     --color-body-background: var(--body-background);
     --color-background: var(--background);
@@ -81,6 +88,11 @@
 }
 
 :root {
+    --success-faded: #ebf9fa;
+    --success-faint: #c2edef;
+    --success-medium: #2ca4ab;
+    --success-deep: #258c91;
+
     --body-background: oklch(96.05% 0.005 258.32);
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -118,6 +130,11 @@
 }
 
 .dark {
+    --success-faded: #272f33;
+    --success-faint: #3d474d;
+    --success-medium: #2ca4ab;
+    --success-deep: #f1feff;
+
     --body-background: oklch(26.02% 0.015 244.26);
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
