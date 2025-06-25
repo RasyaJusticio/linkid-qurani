@@ -1,6 +1,6 @@
 export type BaseEvent = {
     method: "GET" | "POST" | "RESP";
-    type: "initial_data" | 'route_change';
+    type: "initial_data" | 'route_change' | 'appearance_change';
     data: unknown;
 }
 
@@ -13,4 +13,12 @@ export type InitialDataEvent = BaseEvent & {
         session: string;
     };
 }
+
+export type AppearanceChangeEvent = BaseEvent & {
+    type: "appearance_change";
+    data: {
+        appearance: 'light' | 'dark';
+    };
+}
+
 

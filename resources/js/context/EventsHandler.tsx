@@ -1,6 +1,6 @@
 import { IS_IN_IFRAME } from '@/constants/global';
 import { useAppearance } from '@/hooks/use-appearance';
-import { BaseEvent, InitialDataEvent } from '@/types/events';
+import { AppearanceChangeEvent, BaseEvent, InitialDataEvent } from '@/types/events';
 import { changeLanguage } from '@/utils/changeLanguage';
 import { postMessage } from '@/utils/postMessage';
 import { createContext, FC, ReactNode, useEffect } from 'react';
@@ -18,6 +18,17 @@ export const EventsHandlerProvider: FC<Props> = ({ children }) => {
         const handleMessage = (event: MessageEvent<BaseEvent>) => {
             const evMethod = event.data.method;
             const evType = event.data.type;
+
+            if (evMethod === "POST") {
+                switch (evType) {
+                    case 'appearance_change': {
+                        const evData = event.data as AppearanceChangeEvent;
+
+                        updateAppearance(evData.data.appearance);
+                        break;
+                    }
+                }
+            }
 
             if (evMethod === 'RESP') {
                 switch (evType) {
